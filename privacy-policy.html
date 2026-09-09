@@ -39,7 +39,7 @@ th{background:#f2f1ec;font-weight:600}
 <p class="meta"><strong>Effective date:</strong> 9 September 2026 <strong>Last updated:</strong> 9 September 2026</p>
 <h2>Summary</h2>
 <p>DoseDial does not collect your data. The app uses no internet connection, asks for no account, shows no advertising and contains no analytics. Everything you enter stays on your own phone.</p>
-<p>The app does not hold the <code>INTERNET</code> permission. This is not a preference but a technical constraint: the app is unable to send your data anywhere.</p>
+<p>The app&#x27;s own code makes no network requests and your health data is never sent to any server. The app does carry an internet permission, but it is added by the Google Play Services component used for barcode scanning, not by the app itself. See &quot;Camera and barcode scanning&quot; below.</p>
 <h2>What data is processed</h2>
 <p>You enter the following and it is stored in a database on your phone:</p>
 <ul><li>Medication names, doses, times and instructions</li><li>A record of the doses you took or skipped</li><li>The profiles you create (for yourself and for people you care for)</li><li>Stock, expiry date and package information</li><li>Your app settings (language, theme, text size, notification preferences)</li></ul>
@@ -50,12 +50,13 @@ th{background:#f2f1ec;font-weight:600}
 <h2>Camera and barcode scanning</h2>
 <p>You can scan the data matrix code on a medicine box. This is performed by the Google Play Services code scanner:</p>
 <ul><li>The app itself holds no camera permission and never accesses the camera directly</li><li>The camera image is processed on your phone; only the decoded barcode text reaches the app</li><li>No image is stored</li><li>On first use the scanner component may be downloaded to your device by Google Play Services. That connection is made by Google Play Services, not by this app, and is governed by Google&#x27;s own privacy policy</li></ul>
+<p>This component adds the <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> permissions to the app and includes Google&#x27;s own data transport library, through which Google may collect usage and diagnostic data. That belongs to Google&#x27;s component and is governed by Google&#x27;s privacy policy. <strong>The medication and dose information you enter never leaves the phone by this or any other route</strong> - the app&#x27;s own code contains no path that sends it.</p>
 <p>The scanned barcode is matched against a local medicine list shipped inside the app. <strong>No internet request is made for that lookup</strong> and no authority is notified.</p>
 <h2>Purchases</h2>
 <p>The app offers a single one-time &quot;Plus&quot; purchase. Payment is handled by Google Play. Your card details never reach the app and are never seen or stored by it. The app receives only whether the purchase was made, and stores that on your phone.</p>
 <h2>Permissions and why they are used</h2>
-<table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody><tr><td>Post notifications</td><td>Show the reminder at dose time</td></tr><tr><td>Exact alarms</td><td>Make the reminder fire at the right minute</td></tr><tr><td>Start on boot</td><td>Keep scheduled alarms after the phone restarts</td></tr><tr><td>Vibrate</td><td>Vibrate on a reminder</td></tr><tr><td>Full-screen intent</td><td>Show the alarm screen while the phone is locked</td></tr><tr><td>Foreground service (media)</td><td>Keep the alarm sound playing until you dismiss it</td></tr></tbody></table>
-<p>The app has no location, contacts, file-reading or internet permission.</p>
+<table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody><tr><td>Post notifications</td><td>Show the reminder at dose time</td></tr><tr><td>Exact alarms</td><td>Make the reminder fire at the right minute</td></tr><tr><td>Start on boot</td><td>Keep scheduled alarms after the phone restarts</td></tr><tr><td>Vibrate</td><td>Vibrate on a reminder</td></tr><tr><td>Full-screen intent</td><td>Show the alarm screen while the phone is locked</td></tr><tr><td>Foreground service (media)</td><td>Keep the alarm sound playing until you dismiss it</td></tr><tr><td>Internet, network state</td><td>Not used by the app itself; comes with the barcode scanning component</td></tr></tbody></table>
+<p>The app has no location, contacts, camera or file-reading permission.</p>
 <h2>Retention and deletion</h2>
 <p>Your data stays on your phone until you delete it. There are two ways:</p>
 <ul><li>Delete the record or profile from inside the app</li><li>Uninstall the app, which removes all of its data</li></ul>

@@ -39,7 +39,7 @@ th{background:#f2f1ec;font-weight:600}
 <p class="meta"><strong>Yürürlük tarihi:</strong> 9 Eylül 2026 <strong>Son güncelleme:</strong> 9 Eylül 2026</p>
 <h2>Özet</h2>
 <p>DoseDial verilerinizi toplamaz. Uygulama internet bağlantısı kullanmaz, hesap açmanızı istemez, reklam göstermez ve hiçbir analiz aracı içermez. Girdiğiniz her şey yalnızca kendi telefonunuzda kalır.</p>
-<p>Uygulamanın <code>INTERNET</code> izni yoktur. Bu bir tercih değil, teknik bir kısıttır: uygulama veriyi bir yere gönderemez.</p>
+<p>Uygulamanın kendi kodunda hiçbir ağ isteği yoktur; sağlık verileriniz hiçbir sunucuya gönderilmez. Uygulama internet izni taşır, ancak bu izni uygulamanın kendisi değil, barkod okuma için kullanılan Google Play Hizmetleri bileşeni ekler. Ayrıntı aşağıda &quot;Kamera ve barkod tarama&quot; başlığında.</p>
 <h2>Hangi veriler işleniyor</h2>
 <p>Uygulamayı kullandığınızda şunları siz giriyorsunuz ve bunlar telefonunuzdaki veritabanında saklanıyor:</p>
 <ul><li>İlaç adları, dozları, kullanım saatleri ve talimatları</li><li>Aldığınız veya atladığınız dozların kaydı</li><li>Oluşturduğunuz profiller (kendiniz ve baktığınız kişiler için)</li><li>Stok, son kullanma tarihi ve kutu bilgileri</li><li>Uygulama ayarlarınız (dil, tema, yazı boyutu, bildirim tercihleri)</li></ul>
@@ -50,12 +50,13 @@ th{background:#f2f1ec;font-weight:600}
 <h2>Kamera ve barkod tarama</h2>
 <p>İlaç kutusundaki karekodu okutabilirsiniz. Bu işlem Google Play Hizmetleri&#x27;nin kod tarayıcısı tarafından yapılır:</p>
 <ul><li>Uygulamanın kendisinin kamera izni yoktur, kameraya doğrudan erişmez</li><li>Kamera görüntüsü telefonunuzda işlenir, uygulamaya yalnızca çözülmüş barkod metni gelir</li><li>Görüntü kaydedilmez</li><li>Tarayıcı bileşeni ilk kullanımda Google Play Hizmetleri tarafından cihazınıza indirilebilir; bu bağlantıyı uygulama değil, Google Play Hizmetleri kurar ve Google&#x27;ın kendi gizlilik politikasına tabidir</li></ul>
+<p>Bu bileşen uygulamaya <code>INTERNET</code> ve <code>ACCESS_NETWORK_STATE</code> izinlerini ekler ve Google&#x27;ın kendi veri aktarım kütüphanesini içerir; Google bu yolla kullanım ve tanılama verisi toplayabilir. Bu, Google&#x27;ın bileşenine aittir ve Google&#x27;ın gizlilik politikasına tabidir. <strong>Sizin girdiğiniz ilaç ve doz bilgileri bu yoldan da dahil olmak üzere hiçbir şekilde telefondan çıkmaz</strong> - uygulamanın kendi kodunda bu veriyi gönderen bir yol yoktur.</p>
 <p>Okunan barkod, uygulamanın içinde gömülü olarak gelen yerel bir ilaç listesiyle karşılaştırılır. <strong>Bu sorgu için internete çıkılmaz</strong> ve hiçbir kuruma bildirim yapılmaz.</p>
 <h2>Satın alma</h2>
 <p>Uygulama içinde tek seferlik bir &quot;Plus&quot; satın alması bulunur. Ödeme işlemini Google Play yürütür. Kart bilgileriniz uygulamaya hiçbir zaman ulaşmaz ve uygulama tarafından görülmez, saklanmaz. Uygulama Google Play&#x27;den yalnızca satın almanın yapılıp yapılmadığı bilgisini alır ve bunu telefonunuzda saklar.</p>
 <h2>İzinler ve ne için kullanıldıkları</h2>
-<table><thead><tr><th>İzin</th><th>Ne için</th></tr></thead><tbody><tr><td>Bildirim gönderme</td><td>İlaç saatinde hatırlatma göstermek</td></tr><tr><td>Tam zamanlı alarm</td><td>Hatırlatmanın doğru dakikada çalması</td></tr><tr><td>Cihaz açılışında başlatma</td><td>Telefon yeniden başlatıldığında kurulu alarmların kaybolmaması</td></tr><tr><td>Titreşim</td><td>Hatırlatmada titretmek</td></tr><tr><td>Tam ekran bildirim</td><td>Telefon kilitliyken alarm ekranını gösterebilmek</td></tr><tr><td>Ön plan hizmeti (medya)</td><td>Alarm sesinin siz kapatana kadar çalmaya devam etmesi</td></tr></tbody></table>
-<p>Uygulamanın konum, rehber, dosya okuma veya internet izni yoktur.</p>
+<table><thead><tr><th>İzin</th><th>Ne için</th></tr></thead><tbody><tr><td>Bildirim gönderme</td><td>İlaç saatinde hatırlatma göstermek</td></tr><tr><td>Tam zamanlı alarm</td><td>Hatırlatmanın doğru dakikada çalması</td></tr><tr><td>Cihaz açılışında başlatma</td><td>Telefon yeniden başlatıldığında kurulu alarmların kaybolmaması</td></tr><tr><td>Titreşim</td><td>Hatırlatmada titretmek</td></tr><tr><td>Tam ekran bildirim</td><td>Telefon kilitliyken alarm ekranını gösterebilmek</td></tr><tr><td>Ön plan hizmeti (medya)</td><td>Alarm sesinin siz kapatana kadar çalmaya devam etmesi</td></tr><tr><td>İnternet, ağ durumu</td><td>Uygulamanın kendisi kullanmaz; barkod okuma bileşeniyle birlikte gelir</td></tr></tbody></table>
+<p>Uygulamanın konum, rehber, kamera veya dosya okuma izni yoktur.</p>
 <h2>Verilerin saklanması ve silinmesi</h2>
 <p>Verileriniz siz silene kadar telefonunuzda kalır. İki şekilde silinir:</p>
 <ul><li>Uygulama içinden ilgili kaydı veya profili silerek</li><li>Uygulamayı telefondan kaldırarak - bu, uygulamanın tüm verisini siler</li></ul>
